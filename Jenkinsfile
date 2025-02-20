@@ -18,7 +18,8 @@ pipeline {
         }
         stage('Deploy to Tomcat') {
             steps {
-                sh 'scp target/*.war user@server:/var/lib/tomcat/webapps/'
+                sh 'scp target/*.war ssh ubuntu@192.168.1.100
+:/var/lib/tomcat/webapps/'
             }
         }
     }
