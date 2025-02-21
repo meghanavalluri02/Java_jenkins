@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone Repository') {
             steps {
-                git 'https://github.com/meghanavalluri02/Java_jenkins.git'
+                git branch: 'main', url: 'https://github.com/meghanavalluri02/Java_jenkins.git'
             }
         }
         stage('Build') {
@@ -18,7 +18,7 @@ pipeline {
         }
         stage('Deploy to Tomcat') {
             steps {
-                sh 'scp target/*.war master@192.168.203.128:/var/lib/tomcat9/webapps/'
+                sh 'scp -o StrictHostKeyChecking=no target/*.war master@192.168.203.128:/var/lib/tomcat9/webapps/'
             }
         }
     }
